@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Ticket App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"> Welcome <span sec:authentication="name"></span></a>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/biletler">Biletler</a>
+                </li>
+                <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item">
+                    <a class="nav-link active" aria-current="Users" href="/users">Kullanıcılar</a>
+                </li>
+                <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item">
+                    <a class="nav-link active" aria-current="Users" href="/araclar">Araclar</a>
+                </li>
+                <li  class="nav-item">
+                    <a class="nav-link active" aria-current="Users" href="/rotalar">Rotalar</a>
+                </li>
+                <li class="nav-item">
+                    <a active class="nav-link active text-danger" href="/logout">LOGOUT</a>
+                </li>
+                </li>
+            </ul>
+
+
+        </div>
+    </div>
+</nav>
+
+<div align="center" class ="container my-3">
+    <div class="form-group my-2">
+        <a href="/users/newUser">Add User</a>
+    </div>
+    <div class="form-group my-2">
+        <a href="/sehirler/newSehir">Add City</a>
+    </div>
+    <div class="form-group my-2">
+            <a href="/araclar/newArac">Add Vehicle</a>
+    </div>
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+</body>
+</html>
